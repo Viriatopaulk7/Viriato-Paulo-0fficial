@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viriatopaulo - Criador de Websites</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" xintegrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* CSS Combinado para um design mais chamativo */
+        body {
+            font-family: 'Poppins', sans-serif; /* Usando Poppins */
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #e0f2f7, #c1e4ed); /* Gradiente de fundo suave */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 20px; /* Cantos mais arredondados */
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Sombra mais profunda */
+            padding: 45px;
+            text-align: center;
+            max-width: 550px; /* Mais largo para acomodar mais conteúdo */
+            width: 90%;
+            box-sizing: border-box;
+            animation: fadeIn 1s ease-out; /* Animação de entrada */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        header {
+            margin-bottom: 40px;
+        }
+
+        .profile-pic {
+            width: 150px; /* Foto ainda maior */
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid #007bff; /* Borda azul vibrante e mais grossa */
+            box-shadow: 0 0 0 8px rgba(0, 123, 255, 0.3); /* Efeito de anel mais proeminente */
+            margin-bottom: 25px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.08) rotate(3deg); /* Leve aumento e rotação no hover */
+            box-shadow: 0 0 0 10px rgba(0, 123, 255, 0.5);
+        }
+
+        h1 {
+            font-size: 2.8em; /* Título maior */
+            margin-bottom: 10px;
+            color: #1a1a1a;
+            font-weight: 700; /* Mais negrito */
+        }
+
+        .tagline {
+            font-size: 1.3em;
+            color: #444;
+            margin-bottom: 35px;
+            font-weight: 400;
+        }
+
+        /* Nova seção: Sobre Mim */
+        .about-me {
+            margin-bottom: 40px;
+            text-align: justify; /* Texto justificado */
+            background-color: #f8faff; /* Fundo levemente azulado */
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .about-me h2 {
+            font-size: 1.9em;
+            color: #007bff;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .about-me p {
+            font-size: 1.05em;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* Nova seção: Serviços */
+        .services {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .services h2 {
+            font-size: 1.9em;
+            color: #007bff;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .service-list {
+            display: flex;
+            flex-wrap: wrap; /* Permite que os itens quebrem a linha */
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .service-item {
+            background-color: #e0f7fa; /* Azul claro para os itens de serviço */
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 0.95em;
+            color: #00796b;
+            font-weight: 600;
+            border: 1px solid #b2ebf2;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-3px);
+            background-color: #b2ebf2;
+        }
+
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-bottom: 40px;
+        }
+
+        .social-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 25px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.15em;
+            font-weight: 600; /* Mais negrito */
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-button i {
+            margin-right: 12px;
+            font-size: 1.3em;
+        }
+
+        /* Cores das redes sociais com gradientes sutis e efeitos hover */
+        .facebook { background: linear-gradient(45deg, #3b5998, #4c69ba); }
+        .facebook:hover { background: linear-gradient(45deg, #4c69ba, #3b5998); transform: translateY(-5px); box-shadow: 0 8px 16px rgba(59, 89, 152, 0.4); }
+
+        .instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .instagram:hover { background: linear-gradient(45deg, #bc1888, #cc2366, #dc2743, #e6683c, #f09433); transform: translateY(-5px); box-shadow: 0 8px 16px rgba(225, 48, 108, 0.4); }
+
+        .tiktok { background: linear-gradient(45deg, #000000, #222222); }
+        .tiktok:hover { background: linear-gradient(45deg, #222222, #000000); transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); }
+
+        .youtube { background: linear-gradient(45deg, #FF0000, #cc0000); }
+        .youtube:hover { background: linear-gradient(45deg, #cc0000, #FF0000); transform: translateY(-5px); box-shadow: 0 8px 16px rgba(255, 0, 0, 0.4); }
+
+        .whatsapp { background: linear-gradient(45deg, #25D366, #1da851); }
+        .whatsapp:hover { background: linear-gradient(45deg, #1da851, #25D366); transform: translateY(-5px); box-shadow: 0 8px 16px rgba(37, 211, 102, 0.4); }
+
+        /* Estilos para a seção de gerador de ideias de websites */
+        .website-idea-generator {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+
+        .website-idea-generator h2 {
+            font-size: 1.9em;
+            color: #007bff;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .website-idea-generator textarea {
+            width: calc(100% - 24px); /* Ajusta para padding e borda */
+            padding: 12px;
+            margin-bottom: 18px;
+            border: 1px solid #ddd;
+            border-radius: 10px; /* Cantos mais arredondados */
+            font-size: 1.05em;
+            resize: vertical;
+            min-height: 90px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .website-idea-generator textarea:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+            outline: none;
+        }
+
+        .generate-button {
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            color: #fff;
+            padding: 14px 28px; /* Padding maior */
+            border: none;
+            border-radius: 10px;
+            font-size: 1.15em;
+            font-weight: 700; /* Mais negrito */
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px; /* Espaçamento maior entre ícone e texto */
+        }
+
+        .generate-button:hover {
+            transform: translateY(-4px); /* Efeito de elevação maior */
+            box-shadow: 0 8px 16px rgba(106, 17, 203, 0.4);
+        }
+
+        .generate-button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .loading-spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #007bff;
+            border-radius: 50%;
+            width: 28px; /* Spinner um pouco maior */
+            height: 28px;
+            animation: spin 1s linear infinite;
+            display: none;
+            margin: 20px auto; /* Margem maior */
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .output-box {
+            margin-top: 25px; /* Margem maior */
+            padding: 20px; /* Padding maior */
+            background-color: #e9f7ff;
+            border: 1px solid #b3e0ff;
+            border-radius: 10px;
+            text-align: left;
+            font-size: 1em;
+            min-height: 80px; /* Altura mínima maior */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            word-wrap: break-word;
+            color: #0056b3;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        footer {
+            margin-top: 50px; /* Margem maior no rodapé */
+            font-size: 0.95em;
+            color: #777;
+        }
+
+        /* Responsividade para telas menores */
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px;
+                width: 95%;
+            }
+            h1 {
+                font-size: 2.2em;
+            }
+            .tagline {
+                font-size: 1.1em;
+            }
+            .profile-pic {
+                width: 120px;
+                height: 120px;
+            }
+            .social-button, .generate-button {
+                font-size: 1em;
+                padding: 12px 20px;
+            }
+            .about-me h2, .services h2, .website-idea-generator h2 {
+                font-size: 1.7em;
+            }
+            .about-me p {
+                font-size: 0.95em;
+            }
+            .service-item {
+                font-size: 0.9em;
+                padding: 10px 15px;
+            }
+            .website-idea-generator textarea {
+                min-height: 70px;
+            }
+            .output-box {
+                min-height: 60px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src=v.jpg alt="Foto de Viriatopaulo" class="profile-pic">
+            <h1>Viriatopaulo</h1>
+            <p class="tagline">A sua visão digital, construída em código. Criador de Websites.</p>
+        </header>
+
+        <main>
+            <section class="about-me">
+                <h2>Sobre Mim</h2>
+                <p>Olá! Sou o Viriatopaulo, um apaixonado por tecnologia e design, especializado na criação de websites que não só impressionam visualmente, mas que também são funcionais e intuitivos. Acredito que cada projeto é uma oportunidade única para transformar ideias em experiências digitais memoráveis. Com foco em soluções personalizadas, dedico-me a construir a sua presença online com qualidade e inovação.</p>
+            </section>
+
+            <section class="services">
+                <h2>Meus Serviços</h2>
+                <div class="service-list">
+                    <span class="service-item">Desenvolvimento Web Personalizado</span>
+                    <span class="service-item">Design Responsivo</span>
+                    <span class="service-item">Otimização de Performance</span>
+                    <span class="service-item">Manutenção e Suporte</span>
+                    <span class="service-item">Consultoria Digital</span>
+                </div>
+            </section>
+
+            <section class="social-links">
+                <a href="https://facebook.com/viriato-paul" target="_blank" class="social-button facebook">
+                    <i class="fab fa-facebook-f"></i> Facebook
+                </a>
+                <a href="https://instagram.com/viriato.paulo.142" target="_blank" class="social-button instagram">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href="https://tiktok.com/@seu-perfil-tiktok" target="_blank" class="social-button tiktok">
+                    <i class="fab fa-tiktok"></i> TikTok
+                </a>
+                <a href="https://youtube.com/seu-canal-youtube" target="_blank" class="social-button youtube">
+                    <i class="fab fa-youtube"></i> YouTube
+                </a>
+                <a href="https://wa.me/+258861198437" target="_blank" class="social-button whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="https://linkedin.com/in/seu-perfil-linkedin" target="_blank" class="social-button" style="background: linear-gradient(45deg, #0077B5, #005f8c);">
+                    <i class="fab fa-linkedin-in"></i> LinkedIn
+                </a>
+            </section>
+
+            <section class="website-idea-generator">
+                <h2>Precisa de uma Ideia para o seu Website?</h2>
+                <p style="margin-bottom: 20px; color: #666; font-size: 0.95em;">Descreva o seu projeto ou necessidade e deixe a inteligência artificial sugerir conceitos inovadores!</p>
+                <textarea id="ideaInput" placeholder="Ex: 'site para uma galeria de arte moderna', 'plataforma de e-learning para cursos de culinária', 'portfólio interativo para designer gráfico'"></textarea>
+                <button id="generateIdeaBtn" class="generate-button">
+                    Gerar Ideia <i class="fas fa-lightbulb"></i>
+                </button>
+                <div id="loadingSpinner" class="loading-spinner"></div>
+                <div id="ideaOutput" class="output-box">A sua ideia de website gerada aparecerá aqui.</div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2025 Viriatopaulo. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Página de Viriatopaulo - Criador de Websites carregada com sucesso!');
+
+            // Referências aos elementos da nova funcionalidade
+            const ideaInput = document.getElementById('ideaInput');
+            const generateIdeaBtn = document.getElementById('generateIdeaBtn');
+            const ideaOutput = document.getElementById('ideaOutput');
+            const loadingSpinner = document.getElementById('loadingSpinner');
+
+            // Evento de clique para o botão de gerar ideia
+            generateIdeaBtn.addEventListener('click', async () => {
+                const prompt = ideaInput.value.trim();
+
+                if (!prompt) {
+                    ideaOutput.textContent = 'Por favor, descreva o tipo de website que quer para gerar uma ideia.';
+                    return;
+                }
+
+                // Mostrar spinner de carregamento e desabilitar botão
+                loadingSpinner.style.display = 'block';
+                generateIdeaBtn.disabled = true;
+                ideaOutput.textContent = ''; // Limpa o output anterior
+
+                try {
+                    let chatHistory = [];
+                    chatHistory.push({ role: "user", parts: [{ text: `Gera uma ideia criativa e concisa para um website, incluindo o seu propósito, público-alvo e algumas funcionalidades chave, com base na seguinte descrição: "${prompt}". A ideia deve ser em português de Portugal e ter um tom inovador e inspirador. Formata a resposta com tópicos claros para cada secção (Propósito, Público-alvo, Funcionalidades Chave).` }] });
+
+                    const payload = { contents: chatHistory };
+                    const apiKey = ""; // A chave da API será fornecida em runtime pelo ambiente Canvas
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    const result = await response.json();
+
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        const text = result.candidates[0].content.parts[0].text;
+                        ideaOutput.textContent = text; // Exibe a ideia gerada
+                    } else {
+                        ideaOutput.textContent = 'Não foi possível gerar a ideia. Tente novamente.';
+                        console.error('Estrutura de resposta inesperada:', result);
+                    }
+                } catch (error) {
+                    console.error('Erro ao chamar a API Gemini:', error);
+                    ideaOutput.textContent = 'Ocorreu um erro ao gerar a ideia. Por favor, tente mais tarde.';
+                } finally {
+                    // Esconder spinner de carregamento e habilitar botão
+                    loadingSpinner.style.display = 'none';
+                    generateIdeaBtn.disabled = false;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
